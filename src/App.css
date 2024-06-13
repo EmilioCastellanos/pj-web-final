@@ -1,0 +1,196 @@
+/*-----------------------------------CSS DEFAULT--------------------------------------*/
+.App {
+  text-align: center;
+  background-color: #f4fcff;
+}
+
+#recipeList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.secTitle {
+  color: #f4fcff;
+  font-size: 20px;
+  text-align: center;
+  margin-bottom: 1.5vw;
+  background-color: #02457A;
+  padding: 0.8vw 15vw;
+  border-radius: 25px;
+  display: inline-block;
+}
+
+.btnTar {
+  background-color: #f4fcff;
+  padding: 0px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+}
+
+/*-----------------------------------CSS TARJETA--------------------------------------*/
+
+.tarjeta {
+  width: 25vw;
+  height: 15vw;
+  perspective: 1000px;
+  border-radius: 20px;
+  transition: transform 0.8s;
+  position: inherit;
+  margin-bottom: 1.5vw;
+  background-color: #d9d9d9;
+}
+
+.cara-delantera,
+.cara-trasera {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
+.titulo {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateY(180deg);
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.tarjeta.hover {
+  transform: rotateY(180deg);
+}
+
+.cara-trasera {
+  transform: rotateY(180deg);
+  display: none;
+}
+
+.tarjeta.hover .cara-trasera {
+  display: block;
+  transform: rotateY(0deg);
+}
+
+.tarjeta.hover .cara-delantera {
+  display: none;
+}
+
+
+#miNav {
+  background-color: #02457A !important;
+  color: #d9d9d9 !important;
+}
+
+#chefImg {
+  margin-right: 40px;
+}
+
+#addNav {
+  margin: 0px;
+}
+
+/*-------------------------------CSS Quick Search Ingredients-------------------------------*/
+.qi {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 1.5vw;
+}
+
+.ing {
+  background-color: #d9d9d9;
+  height: 7vw;
+  width: 7vw;
+  padding: 1vw;
+  margin-bottom: 1.5vw;
+
+  display: flex;
+  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+.ing:hover {
+  transform: scale(1.1);
+  transition: transform .2s;
+}
+
+.ing img {
+  width: 80%;
+  height: 80%;
+  object-fit: contain;
+}
+
+/*-----------------------------------CSS Recetota--------------------------------------*/
+#recepotaDiv {
+  display: flex;
+}
+
+/*-----------------------------------CSS Banderas--------------------------------------*/
+#banderas {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+#carru {
+  width: 100vw;
+  margin-bottom: 1.5vw;
+  background: linear-gradient(to right, #f4fcff, #d9d9d9, #d9d9d9, #d9d9d9, #d9d9d9, #f4fcff);
+}
+
+.carImg {
+  width: 50vw;
+  height: 28vw;
+  object-fit: cover;
+}
+
+.carrItem:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s;
+}
+
+.carrCap {
+  border-radius: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  text-align: center;
+  background-color: rgb(217, 217, 217, 0.6);
+}
+
+.h3Cap {
+  font-size: 2.5vw;
+  color: #001b4b;
+}
+
+#banImg {
+  width: 10vw;
+  margin-bottom: 1.5vw;
+}
+
+#banImg:hover{
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+.imagenSuperiorDerecha {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 5vw;
+  z-index: 1;
+}

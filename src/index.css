@@ -1,0 +1,20 @@
+
+
+body {
+  margin: 0;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: #001B48;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.oswald{
+  font-family: "Oswald", sans-serif;
+  letter-spacing: 2px;
+}

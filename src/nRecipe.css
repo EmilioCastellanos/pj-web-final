@@ -1,0 +1,70 @@
+.medium {
+  width: 25vw !important;
+}
+
+#countButs {
+  display: flex;
+  gap: 3vw;
+  margin-bottom: 5vh;
+}
+
+#mainDiv {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header {
+  display: flex;
+  gap: 1vw;
+}
+
+#one {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.section {
+  letter-spacing: 0.8vw;
+}
+
+.form {
+  background-color: #d9d9d9 !important;
+  border-radius: 15px !important;
+  margin-bottom: 4vh;
+}
+
+.addBtn {
+  padding: 0px;
+  margin-bottom: 4vh;
+}
+
+#submit {
+  background-color: #02457A !important;
+  border: 0px;
+}
+
+.large {
+  width: 70vw !important;
+}
+
+#loadingContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  /* Ocupa toda la pantalla */
+}
+
+#loadingBall {
+  width: 20px;
+  height: 20px;
+  background-color: #02457a;
+  /* Color de la bolita */
+  border-radius: 50%;
+  animation: loading 1s infinite;
+}
