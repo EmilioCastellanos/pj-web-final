@@ -194,3 +194,17 @@
   width: 5vw;
   z-index: 1;
 }
+
+.welcomeDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+}
+
+.stud{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3vw;
+}

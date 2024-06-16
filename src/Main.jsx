@@ -33,7 +33,6 @@ function Main() {
     }
 
     carIndx = Array.from(numerosUnicos);
-    console.log('por dios: ' + carIndx);
   }
 
 
@@ -54,7 +53,6 @@ function Main() {
           {getRandomIndex(recipesDB.length, 5)}
           {recipesDB.map((recipe, indx) => {
             if (carIndx.includes(indx)) {
-              console.log('currIndex: ' + indx)
               return (
                 <Carousel.Item className='carrItem' key={recipe.id}>
                   <Link to={`/Recipe/${recipe.id}`}>
@@ -77,16 +75,7 @@ function Main() {
 
       <div id='recipeList'>
         {recipesDB.map((recipe) => {
-          console.log(recipe.ingredients);
           if (recipe.country === filterPar) {
-            return (
-              <Link to={`/Recipe/${recipe.id}`}
-                key={recipe.id}
-              >
-                <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
-              </Link>
-            );
-          } else if (recipe.ingredients.includes(filterPar)) {
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
@@ -102,8 +91,29 @@ function Main() {
                 <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
               </Link>
             );
-            // filterPar = tomate
-            // if recipes.ingredient.includes(filterPar) return 
+          } else {
+            var banderita = true;
+            return (
+              recipe.ingredients.map((currIng) => {
+                var arrIng = currIng.split(' ');
+                if (banderita) {
+                  return (
+                    arrIng.map((currWord) => {
+                      if (currWord.toUpperCase() === filterPar.toUpperCase()) {
+                        banderita = false;
+                        return (
+                          <Link to={`/Recipe/${recipe.id}`}
+                            key={recipe.id}
+                          >
+                            <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
+                          </Link>
+                        );
+                      }
+                    })
+                  );
+                }
+              })
+            );
           }
         })}
       </div>

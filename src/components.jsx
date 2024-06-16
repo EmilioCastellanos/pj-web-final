@@ -62,10 +62,10 @@ export function Qi() {
   return (
     <div className='container qi'>
       <Link to='/Tomate'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/Maiz'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/Harina'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/Pollo'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/Pan'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Maiz'><img src="https://img.icons8.com/fluency/96/000000/corn.png" className='ing' /></Link>
+      <Link to='/Harina'><img src="https://img.icons8.com/cotton/96/000000/sack-of-flour--v1.png" className='ing' /></Link>
+      <Link to='/Pollo'><img src="https://img.icons8.com/external-nawicon-flat-nawicon/64/external-chicken-grocery-nawicon-flat-nawicon.png" className='ing' /></Link>
+      <Link to='/Pan'><img src="https://img.icons8.com/color/96/bread.png" className='ing' /></Link>
     </div>
   );
 };
