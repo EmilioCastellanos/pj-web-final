@@ -13,7 +13,7 @@ function App() {
       <Navbarpj />
       <Routes>
         <Route path='/' exact element={<Main />} />
-        <Route path='/:countryPar' element={<Main />} />
+        <Route path='/:filterPar' element={<Main />} />
         <Route path='/Recipe/:id' element={<RecipePage />} />
         <Route path='/Recipe' exact element={<RecipePage />} />
         <Route path='/About' element={<About />} />

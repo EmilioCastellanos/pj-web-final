@@ -1,6 +1,6 @@
 import './App.css';
 import { React, useState, useEffect } from 'react'
-import { Link, useParams, useLocation } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { db } from './firebase.js';
 import { collection, getDocs } from "firebase/firestore";
 import { Tarjeta, Title, Qi } from './components.jsx';
@@ -8,12 +8,8 @@ import Carousel from 'react-bootstrap/Carousel';
 
 
 function Main() {
-  const { countryPar } = useParams();
-  const location = useLocation();
+  const { filterPar } = useParams();
   var carIndx = [];
-  // if(countryPar === undefined){
-  //   console.log('aaaaaaaaaaaaaaaaaaeeeeeeeeeee');
-  // }
 
   // Conseguir las recetas de la db
   const [recipesDB, setRecipesDB] = useState(['']);
@@ -32,7 +28,7 @@ function Main() {
     let numerosUnicos = new Set();
 
     while (numerosUnicos.size < cantidad) {
-      let numeroAleatorio = Math.floor(Math.random() * (longitud + 1));
+      let numeroAleatorio = Math.floor(Math.random() * (longitud));
       numerosUnicos.add(numeroAleatorio);
     }
 
@@ -49,13 +45,16 @@ function Main() {
       </div>
     );
   }
+  
 
   return (
     <div className="App">
       <div id="recepotaDiv">
         <Carousel id='carru' data-bs-theme='dark'>
+          {getRandomIndex(recipesDB.length, 5)}
           {recipesDB.map((recipe, indx) => {
-            if (indx < 5) {
+            if (carIndx.includes(indx)) {
+              console.log('currIndex: ' + indx)
               return (
                 <Carousel.Item className='carrItem' key={recipe.id}>
                   <Link to={`/Recipe/${recipe.id}`}>
@@ -78,7 +77,7 @@ function Main() {
 
       <div id='recipeList'>
         {recipesDB.map((recipe) => {
-          if (recipe.country === countryPar) {
+          if (recipe.country === filterPar) {
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
@@ -86,7 +85,7 @@ function Main() {
                 <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
               </Link>
             );
-          } else if (countryPar === undefined) {
+          } else if (filterPar === undefined) {
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
@@ -94,6 +93,8 @@ function Main() {
                 <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
               </Link>
             );
+            // filterPar = tomate
+            // if recipes.ingredient.includes(filterPar) return 
           }
         })}
       </div>
