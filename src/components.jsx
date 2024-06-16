@@ -61,11 +61,11 @@ export const Title = ({ text }) => {
 export function Qi() {
   return (
     <div className='container qi'>
-      <Link to='/tomate'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/maiz'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/harina'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/pollo'><img src="/imgs/tomato.png" className="ing" /></Link>
-      <Link to='/pan'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Tomate'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Maiz'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Harina'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Pollo'><img src="/imgs/tomato.png" className="ing" /></Link>
+      <Link to='/Pan'><img src="/imgs/tomato.png" className="ing" /></Link>
     </div>
   );
 };

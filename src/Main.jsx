@@ -45,7 +45,7 @@ function Main() {
       </div>
     );
   }
-  
+
 
   return (
     <div className="App">
@@ -77,7 +77,16 @@ function Main() {
 
       <div id='recipeList'>
         {recipesDB.map((recipe) => {
+          console.log(recipe.ingredients);
           if (recipe.country === filterPar) {
+            return (
+              <Link to={`/Recipe/${recipe.id}`}
+                key={recipe.id}
+              >
+                <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
+              </Link>
+            );
+          } else if (recipe.ingredients.includes(filterPar)) {
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
