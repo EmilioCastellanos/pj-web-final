@@ -9,6 +9,7 @@ function RecipePage() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
   const [fetchError, setFetchError] = useState(false);
+  const [eliminated, setEliminated] = useState(false);
 
   useEffect(() => {
     const fetchRecipe = async () => {
@@ -49,6 +50,15 @@ function RecipePage() {
   //------------------- Function to eliminate a recipe -------------------
   const eliminate = async () => {
     await deleteDoc(doc(db, "recipes", id));
+    setEliminated(true);
+  }
+
+  if(eliminated){
+    return(
+      <center>
+        <h1>The recipe has been successfully deleted</h1>
+      </center>
+    );
   }
 
 
