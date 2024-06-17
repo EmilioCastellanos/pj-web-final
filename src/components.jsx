@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 
-
+//----------------------- Navigation Bar ----------------------- 
 export function Navbarpj() {
   return (
     <Navbar bg="dark" data-bs-theme="dark" id='miNav' sticky="top">
@@ -22,6 +22,7 @@ export function Navbarpj() {
   );
 };
 
+//----------------------- Recipe Card ----------------------- 
 export const Tarjeta = ({ img, titulo, pais }) => {
   const [hover, setHover] = useState(false);
 
@@ -54,10 +55,13 @@ export const Tarjeta = ({ img, titulo, pais }) => {
   );
 };
 
+//----------------------- Title ----------------------- 
 export const Title = ({ text }) => {
   return <h1 className="secTitle">{text}</h1>;
 };
 
+
+//----------------------- Quick Ingredient Bar ----------------------- 
 export function Qi() {
   return (
     <div className='container qi'>

@@ -4,7 +4,7 @@ import Image from 'react-bootstrap/Image';
 import { useParams } from 'react-router-dom';
 import { db } from './firebase';
 import { doc, getDoc } from 'firebase/firestore';
-
+//------------------- Reciep Page -------------------
 function RecipePage() {
   const { id } = useParams();
   const [recipe, setRecipe] = useState(null);
@@ -14,9 +14,9 @@ function RecipePage() {
     const fetchRecipe = async () => {
       try {
         const recipeRef = doc(db, 'recipes', id);
-        const currRecipe = await getDoc(recipeRef);
+        const currRecipe = await getDoc(recipeRef); //Geting the Recipe from the DB
 
-        if (currRecipe.exists()) {
+        if (currRecipe.exists()) { //Verify if exists
           setRecipe(currRecipe.data());
         } else {
           console.error('No such document!');
@@ -36,6 +36,7 @@ function RecipePage() {
       
     );
   }
+  //------------------- Loading Animation-------------------
   if (!recipe) {
     return (
       <div id="loadingContainer">
@@ -44,7 +45,7 @@ function RecipePage() {
     );
   }
 
-
+  //------------------- Recipe Body with all the steps and information -------------------
   return (
     <div id='recContainer'>
       <div id='title'>

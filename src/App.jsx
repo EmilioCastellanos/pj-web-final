@@ -7,6 +7,8 @@ import RecipePage from './RecipePage.jsx';
 import { Navbarpj } from './components.jsx';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
+
+//----------------------- Declaration Routes ----------------------- 
 function App() {
   return (
     <BrowserRouter>

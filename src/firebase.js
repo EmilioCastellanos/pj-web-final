@@ -2,6 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 import { getStorage } from 'firebase/storage';
 
+//----------------------- Database Connection/Configuration ----------------------- 
 const firebaseConfig = {
     apiKey: "AIzaSyCMfNo-o0gfaJT6FCIfyYmLV_BhgHPXhdA",
     authDomain: "pj-web-8a3b9.firebaseapp.com",

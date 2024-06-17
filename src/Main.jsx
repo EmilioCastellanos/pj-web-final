@@ -11,7 +11,7 @@ function Main() {
   const { filterPar } = useParams();
   var carIndx = [];
 
-  // Conseguir las recetas de la db
+  //----------------------- Conseguir las recetas de la db ----------------------- 
   const [recipesDB, setRecipesDB] = useState(['']);
   const recipesCollectionRef = collection(db, "recipes");
 
@@ -24,6 +24,7 @@ function Main() {
     getRecipes();
   }, []);
 
+  //----------------------- Create Array with Random Indexs----------------------- 
   function getRandomIndex(longitud, cantidad) {
     let numerosUnicos = new Set();
 
@@ -33,10 +34,12 @@ function Main() {
     }
 
     carIndx = Array.from(numerosUnicos);
+
+    //We use this array as a parameter of the carrousel component. So it renderizes random recipes.
   }
 
 
-
+  //----------------------- Loading Animation ----------------------- 
   if (recipesDB[0] === '') {
     return (
       <div id="loadingContainer">
@@ -49,6 +52,7 @@ function Main() {
   return (
     <div className="App">
       <div id="recepotaDiv">
+        {/* ------------------- Carousel Component with Random Recipes ------------------- */} 
         <Carousel id='carru' data-bs-theme='dark'>
           {getRandomIndex(recipesDB.length, 5)}
           {recipesDB.map((recipe, indx) => {
@@ -69,13 +73,13 @@ function Main() {
       </div>
 
       <Title text="quick search by ingredient" />
-      <Qi />
+      <Qi /> {/* ------------------- Quick Ingredient Bar ------------------- */}
 
-      <Title text="frequently consulted recipes" />
+      <Title text="Recipes List" /> {/* ------------------- Recipes Renderization ------------------- */}
 
       <div id='recipeList'>
-        {recipesDB.map((recipe) => {
-          if (recipe.country === filterPar) {
+        {recipesDB.map((recipe) => { //We starte looping the recipes array.
+          if (recipe.country === filterPar) { //Verify if theres a filtration by the country.
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
@@ -83,7 +87,8 @@ function Main() {
                 <Tarjeta img={recipe.imageRef} titulo={recipe.name} pais={recipe.country} />
               </Link>
             );
-          } else if (filterPar === undefined) {
+          } else if (filterPar === undefined) { //if theres is no filter.
+            //Return all the recipes.
             return (
               <Link to={`/Recipe/${recipe.id}`}
                 key={recipe.id}
@@ -92,15 +97,17 @@ function Main() {
               </Link>
             );
           } else {
-            var banderita = true;
+            var banderita = true; //if theres is a filtration by any ingredient.
+            //return all the recipes that includes the specific ingredient.
             return (
-              recipe.ingredients.map((currIng) => {
+              recipe.ingredients.map((currIng) => { //looping the ingredients of each recipe.
                 var arrIng = currIng.split(' ');
                 if (banderita) {
                   return (
-                    arrIng.map((currWord) => {
-                      if (currWord.toUpperCase() === filterPar.toUpperCase()) {
+                    arrIng.map((currWord) => { //looping each ingredient if it has more than 1 word.
+                      if (currWord.toUpperCase() === filterPar.toUpperCase()) { //verify if it matches the ingredient.
                         banderita = false;
+                        //returning the recipe with ingredient.
                         return (
                           <Link to={`/Recipe/${recipe.id}`}
                             key={recipe.id}
@@ -117,7 +124,7 @@ function Main() {
           }
         })}
       </div>
-
+      {/*------------------- Filter Section -------------------*/}
       <Title text="filter by country" />
       <div id='banderas'>
         <Link to={'/s'}>
